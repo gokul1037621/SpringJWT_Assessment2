@@ -1,6 +1,7 @@
 package com.example.EcommerceJWT.Controller;
 
 import com.example.EcommerceJWT.Model.Category;
+import com.example.EcommerceJWT.Model.Product;
 import com.example.EcommerceJWT.Service.CategoryService;
 import com.example.EcommerceJWT.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,10 @@ public class CategoryController {
         try {
             boolean categoryExists = categoryService.existCategoryById(id);
             if (categoryExists){
+                List<Product> p1 = categoryService.findCategoryById(id).get().getProductList();
+                for(Product p : p1){
+                    productService.deleteProdById(p.getProductId());
+                }
                 categoryService.deleteCategoryById(id);
                 System.out.println("Category id "+id+" successfully deleted");
             }else{

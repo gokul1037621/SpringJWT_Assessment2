@@ -49,7 +49,7 @@ public class ProductController {
         c1.setProductList(p1);
         System.out.println(p1);
         System.out.println(c1.getProductList());
-        return categoryService.saveCategory(c1);
+        return categoryService.updateCategory(c1);
     }
 
     @GetMapping("/getall")
