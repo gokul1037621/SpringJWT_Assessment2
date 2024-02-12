@@ -91,4 +91,9 @@ public class ProductController {
         System.out.println("Product does not exists");
         return null;
     }
+
+    @GetMapping("/getByanyfield")
+    public Product getbyfield(@RequestBody Product product){
+        return getbyfield(product);
+    }
 }

@@ -50,4 +50,29 @@ public class ProductService {
         return prodObj;
     }
 
+    public boolean returnfield(String product){
+        List<Product> p1 = prodRepo.findAll();
+        for(Product p : p1){
+            if(p.getProductName().equals(product)){
+                return true;
+            }
+            else if(p.getProductDescription().equals(product)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Optional<Product> getByField(Product product){
+        if(product.getProductCategory()!=null){
+            if(returnfield(product.getProductName())){
+                return prodRepo.findById(product.getProductId());
+            }
+            else if(returnfield(product.getProductDescription())){
+                return prodRepo.findById(product.getProductId());
+            }
+        }
+        return null;
+    }
+
 }
