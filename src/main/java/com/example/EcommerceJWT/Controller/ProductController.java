@@ -11,6 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/*
+product controller object that calls the service object of the same through dependency injection
+functions are performed by the service object, which receives inputs through the path mapping provided
+in the controller. This is used to handle crud http requests through APIs and data is sent and received
+in JSON format depending on the function parameters.
+ */
+
 @RestController
 @RequestMapping("ecommerceJWT/product")
 public class ProductController {
@@ -73,15 +80,15 @@ public class ProductController {
         }
     }
 
-//    @PostMapping("/updateproduct")
-//    public Product update(@RequestBody Product product){
-//        Product newProd = product;
-//        System.out.println("Id of new product is " + newProd.getProductId());
-//        if(prodServ.existProdById(newProd.getProductId())){
-//            Product updatedProd = prodServ.updateProduct(product);
-//            return updatedProd;
-//        }
-//        System.out.println("Product does not exists");
-//        return null;
-//    }
+    @PostMapping("/updateproduct")
+    public Product update(@RequestBody Product product){
+        Product newProd = product;
+        System.out.println("Id of new product is " + newProd.getProductId());
+        if(prodServ.existProdById(newProd.getProductId())){
+            Product updatedProd = prodServ.updateProduct(product);
+            return updatedProd;
+        }
+        System.out.println("Product does not exists");
+        return null;
+    }
 }

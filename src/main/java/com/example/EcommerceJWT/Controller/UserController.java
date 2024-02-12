@@ -9,6 +9,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/*
+user controller class which handles rest requests (http) made though the postman api. performs
+basic operations like CRUd here though paths define as URLs and various parameters being passed in the
+body of the request data sent into the function. This calls the functions from the service object
+by using dependency injection on the service object. the outputs are defined by the service functions
+while the inputs are passed as JSON objects through the API, on which actions are done. this also h
+handles the log in function and returns a JSON format result containing the token through the service
+onject and displays as output on the POSTMAN API
+ */
+
 @RestController
 @RequestMapping("/ecommerceJWT/user")
 public class UserController {
@@ -83,8 +93,8 @@ public class UserController {
 
     @PostMapping("/exists/login")
     public String loginExists(@RequestBody User user){
-        String userEmail = user.getEmail();
-        String password = user.getPassword();
+        String userEmail = user.getUserName();
+        String password = user.getPassword1();
 
         return userServ.userLogin(userEmail, password);
     }

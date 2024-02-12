@@ -14,6 +14,11 @@ import java.util.Date;
 @Service
 public class TokenService {
 
+    // token service class to perform the functions and implementations required to
+    // create token specific to a user id through hashing algorithms
+    // tokens are created using claims to identify a token with a particular user id
+    //
+
     public static final String token_secret = "hdbqdwvuchcgyudgcoiuhhdcouewpiuhdiewguqyd";
     public String createTokenFunction(int id){
         try{

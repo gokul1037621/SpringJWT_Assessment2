@@ -12,6 +12,13 @@ import org.springframework.web.filter.GenericFilterBean;
 
 import java.io.IOException;
 
+/*
+config file given first priority among other spring beans that will be loaded.
+handles the performance of the requests made through http apis such that we can define which requets
+need a token and which dont. this also handles the status and processing of http requests and response
+
+ */
+
 @Configuration //first priority among other beans
 public class JwtFilter extends GenericFilterBean {
     private TokenService tokenService;
@@ -42,7 +49,13 @@ public class JwtFilter extends GenericFilterBean {
     }
     public boolean allowRequestWithoutToken(HttpServletRequest httpServletRequest) {
         System.out.println(httpServletRequest.getRequestURI());
-        if(httpServletRequest.getRequestURI().contains("/user"))
+        if(httpServletRequest.getRequestURI().contains("/ecommerceJWT/user"))
+            return true;
+        else if(httpServletRequest.getRequestURI().contains("/ecommerceJWT/category/getall"))
+            return true;
+        else if(httpServletRequest.getRequestURI().contains("/ecommerceJWT/category/findbyid"))
+            return true;
+        else if(httpServletRequest.getRequestURI().contains("/ecommerceJWT/product/getall"))
             return true;
         return false;
     }

@@ -11,3 +11,5 @@ public class EcommerceJwtApplication {
 	}
 
 }
+
+// main application with spring context

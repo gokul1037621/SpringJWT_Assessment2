@@ -10,6 +10,12 @@ import java.util.Optional;
 
 @Service
 public class ProductService {
+
+    /*
+    product service object which will be invoked by controller during run time. this uses autowired
+    to inject the repo object as a dependency within the application context so that built in JPA
+    functions such as save and delete are available directly for use by the controller.
+     */
     @Autowired
     ProductRepository prodRepo;
 

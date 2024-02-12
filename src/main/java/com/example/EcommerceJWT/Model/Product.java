@@ -6,6 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+/*
+product entity defined in postgresql database through annotations, with 2 constructors being created
+the entity is also mapped many to one to the category entity through annotation, with cascading enabled
+which means that any change reflected here will affect the mapped entity as well.
+ */
 @Entity
 @Data
 @Table(name = "Product Table")

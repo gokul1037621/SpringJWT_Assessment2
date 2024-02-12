@@ -9,6 +9,12 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+category entity defined through annotations to be an entity in the postgresql database along with 2
+constructors. also mapped one to many to the product entity using a list as a data member.
+cascading is also given, which means that any change made here will reflect in the mapped entity as well
+ */
+
 @Entity
 @Data
 @Table(name = "Category Table")

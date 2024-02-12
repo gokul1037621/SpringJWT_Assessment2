@@ -10,6 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/*
+category controller class that calls the service object through dependency injection
+to invoke the db functions defined by the service class to perform http crud requests and also handlle
+the entity to entity mapping between categeory and product. path mappings are used to handle requets
+along with request parameters and variables within the path of the request itself
+ */
+
 @RestController
 @RequestMapping("ecommerceJWT/category")
 public class CategoryController {

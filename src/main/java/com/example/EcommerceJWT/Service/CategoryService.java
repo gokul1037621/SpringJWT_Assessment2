@@ -12,6 +12,13 @@ import java.util.Optional;
 @Service
 public class CategoryService {
 
+    /*
+    category service class to define the functions that will be invoked by the controller during
+    run time. controller calls the service class as and when required. dependency injection is done
+    using autowired to use the repository object within the application context.
+    th object uses pre built functions within JPA to perform db related tasks such as save, delete and
+    search
+     */
     @Autowired
     CategoryRepository categoryRepositoryObject;
 
