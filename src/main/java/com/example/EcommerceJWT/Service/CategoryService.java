@@ -2,6 +2,7 @@ package com.example.EcommerceJWT.Service;
 
 
 import com.example.EcommerceJWT.Model.Category;
+import com.example.EcommerceJWT.Model.Product;
 import com.example.EcommerceJWT.Repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,6 +49,34 @@ public class CategoryService {
 
     public List<Category> findAllCategories(){
         return categoryRepositoryObject.findAll();
+    }
+
+    // functions to get by any field
+
+
+    public boolean returnfield(String product){
+        List<Category> p1 = categoryRepositoryObject.findAll();
+        for(Category p : p1){
+            if(p.getCategoryName().equals(product)){
+                return true;
+            }
+            else if(p.getCategoryDescription().equals(product)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Optional<Category> getByField(Category product){
+        if(product.getCategoryDescription()!=null){
+            if(returnfield(product.getCategoryDescription())){
+                return categoryRepositoryObject.findById(product.getCategoryId());
+            }
+            else if(returnfield(product.getCategoryName())){
+                return categoryRepositoryObject.findById(product.getCategoryId());
+            }
+        }
+        return null;
     }
 
 

@@ -81,4 +81,9 @@ public class CategoryController {
         System.out.println("Product does not exists");
         return null;
     }
+
+    @GetMapping("/getByanyfield")
+    public Product getbyfield(@RequestBody Category product){
+        return getbyfield(product);
+    }
 }
